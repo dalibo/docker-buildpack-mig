@@ -12,8 +12,12 @@ RUN set -ex; \
         https://yum.oracle.com/repo/OracleLinux/OL8/oracle/instantclient21/x86_64/getPackage/oracle-instantclient-basic-21.12.0.0.0-1.el8.x86_64.rpm \
         https://download.oracle.com/otn_software/linux/instantclient/2112000/oracle-instantclient-sqlplus-21.12.0.0.0-1.el8.x86_64.rpm \
         mariadb \
-        mysql \
+        https://repo.mysql.com/yum/mysql-innovation-community/el/8/x86_64/mysql-community-common-8.2.0-1.el8.x86_64.rpm \
+        https://repo.mysql.com/yum/mysql-innovation-community/el/8/x86_64/mysql-community-client-8.2.0-1.el8.x86_64.rpm \
+        https://repo.mysql.com/yum/mysql-innovation-community/el/8/x86_64/mysql-community-client-plugins-8.2.0-1.el8.x86_64.rpm \
+        https://repo.mysql.com/yum/mysql-innovation-community/el/8/x86_64/mysql-community-libs-8.2.0-1.el8.x86_64.rpm \
     ; \
     yum clean all ; \
     sqlplus -V ; \
+    mysql --version ; \
     :
