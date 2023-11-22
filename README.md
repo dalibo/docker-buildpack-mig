@@ -1,4 +1,4 @@
-# [dalibo/buildpack-mig](https://hub.docker.com/r/dalibo/buildpack)
+# [dalibo/buildpack-mig](https://hub.docker.com/r/dalibo/buildpack-mig)
 
 Buildpack image for development of PostgreSQL migration tooling:
 
