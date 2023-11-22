@@ -3,4 +3,5 @@ FROM dalibo/buildpack:bookworm
 RUN set -ex; \
     curl -fsSL https://github.com/xo/usql/releases/download/v0.16.0/usql-0.16.0-linux-amd64.tar.bz2 | tar -C /usr/local/bin -jxf - usql ; \
     chmod +x /usr/local/bin/usql; \
+    usql --version ; \
     :
