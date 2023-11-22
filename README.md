@@ -3,6 +3,7 @@
 Buildpack image for development of PostgreSQL migration tooling:
 
 - usql
+- mariadbc
 
 This image does not include GCC nor PostgreSQL server.
 

@@ -5,3 +5,18 @@ RUN set -ex; \
     chmod +x /usr/local/bin/usql; \
     usql --version ; \
     :
+
+RUN set -ex; \
+    apt-get update -y; \
+    apt-get install -y --no-install-recommends \
+        mariadb-client \
+    ; \
+    apt-get clean; \
+    rm -rf \
+        /usr/share/postgresql/*/man \
+        /var/lib/apt/lists/* \
+        /var/log/apt \
+        /var/log/dpkg.log \
+        /var/log/alternatives.log \
+    ; \
+    :
