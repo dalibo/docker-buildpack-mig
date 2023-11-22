@@ -1,0 +1,17 @@
+FROM dalibo/buildpack:rockylinux8
+
+RUN set -ex; \
+    curl -fsSL https://github.com/xo/usql/releases/download/v0.16.0/usql_static-0.16.0-linux-amd64.tar.bz2 | tar -C /usr/local/bin -jxf - usql_static ; \
+    mv /usr/local/bin/usql{_static,} ; \
+    chmod +x /usr/local/bin/usql ; \
+    usql --version ; \
+    :
+
+RUN set -ex; \
+    /usr/local/bin/retry yum -q -y install \
+        https://yum.oracle.com/repo/OracleLinux/OL8/oracle/instantclient21/x86_64/getPackage/oracle-instantclient-basic-21.12.0.0.0-1.el8.x86_64.rpm \
+        https://download.oracle.com/otn_software/linux/instantclient/2112000/oracle-instantclient-sqlplus-21.12.0.0.0-1.el8.x86_64.rpm \
+    ; \
+    yum clean all ; \
+    sqlplus -V ; \
+    :

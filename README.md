@@ -3,7 +3,8 @@
 Buildpack image for development of PostgreSQL migration tooling:
 
 - usql
-- mariadbc
+- mariadbc (in `bookworm`)
+- sqlplus (in `rockylinux8`)
 
 This image does not include GCC nor PostgreSQL server.
 
@@ -11,3 +12,4 @@ This image does not include GCC nor PostgreSQL server.
 ## Tags
 
 - `bookworm`.
+- `rockylinux8`
