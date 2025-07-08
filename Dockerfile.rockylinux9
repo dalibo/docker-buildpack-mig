@@ -1,0 +1,26 @@
+FROM dalibo/buildpack:rockylinux9
+
+RUN set -ex; \
+    curl -fsSL https://github.com/xo/usql/releases/download/v0.19.24/usql_static-0.19.24-linux-amd64.tar.bz2 | tar -C /usr/local/bin -jxf - usql_static ; \
+    mv /usr/local/bin/usql{_static,} ; \
+    chmod +x /usr/local/bin/usql ; \
+    usql --version ; \
+    :
+
+RUN set -ex; \
+    /usr/local/bin/retry yum -q -y install \
+        https://yum.oracle.com/repo/OracleLinux/OL9/oracle/instantclient23/x86_64/getPackage/oracle-instantclient-basic-23.8.0.25.04-1.el9.x86_64.rpm \
+        https://yum.oracle.com/repo/OracleLinux/OL9/oracle/instantclient23/x86_64/getPackage/oracle-instantclient-sqlplus-23.8.0.25.04-1.el9.x86_64.rpm \
+    ; \
+    yum clean all ; \
+    sqlplus -V ; \
+    :
+
+RUN set -ex; \
+    /usr/local/bin/retry yum -q -y install \
+        mariadb \
+        https://yum.oracle.com/repo/OracleLinux/OL9/MySQL84/tools/community/x86_64/getPackage/mysql-shell-8.4.5-1.el9.x86_64.rpm \
+    ; \
+    yum clean all ; \
+    mysql --version ; \
+    :

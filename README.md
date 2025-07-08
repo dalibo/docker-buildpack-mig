@@ -4,8 +4,8 @@ Buildpack image for development of PostgreSQL migration tooling:
 
 - usql
 - mariadbc
-- mysqlc (in `rockylinux8`)
-- sqlplus (in `rockylinux8`)
+- mysqlc (in rockylinux)
+- sqlplus (in rockylinux)
 
 This image does not include GCC nor PostgreSQL server.
 
@@ -14,3 +14,4 @@ This image does not include GCC nor PostgreSQL server.
 
 - `bookworm`.
 - `rockylinux8`
+- `rockylinux9`
