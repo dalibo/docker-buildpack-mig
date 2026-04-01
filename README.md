@@ -2,6 +2,7 @@
 
 Buildpack image for development of PostgreSQL migration tooling:
 
+- pg_prove
 - usql
 - mariadbc
 - mysqlc (in rockylinux)
